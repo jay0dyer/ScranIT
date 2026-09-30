@@ -1,4 +1,6 @@
-engine = ScranSreachEngine()
+from ScranSearch import ScranSearchEngine
+
+engine = ScranSearchEngine()
 start by running this with a loading screen, the sreach is fast but the INIT is slow
 
 engine.Search("latte")
@@ -12,7 +14,7 @@ use this to search for an item, returned values below, there returned in order o
     "27 Ridley Place", # street address
     "NE1 8JN", # post code
     "https://d30v2pzvrfyzpo.cloudfront.net/uk/images/restaurants/235167.gif", # resaunt logo, USE IT
-    0.5266004800796509 # sreach ranking
+    0.5266004800796509 # search ranking
   ],
   [
     "Red Top - Slice",

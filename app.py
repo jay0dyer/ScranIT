@@ -1,5 +1,5 @@
 from flask import Flask
-from ScranSreach import ScranSreachEngine
+from ScranSearch import ScranSreachEngine
 
 app = Flask(__name__)
 

@@ -2,7 +2,7 @@ import sqlite3
 import sqlite_vec
 from sentence_transformers import SentenceTransformer
 
-class ScranSreachEngine:
+class ScranSearchEngine:
     def __init__(self):
         self.model = SentenceTransformer("all-MiniLM-L6-v2")
         self.conn = sqlite3.connect("ItemInfo.db")
@@ -35,5 +35,5 @@ class ScranSreachEngine:
 
 if __name__ == "__main__":
     import json
-    engine = ScranSreachEngine()
+    engine = ScranSearchEngine()
     print(json.dumps(engine.Search("cheese"), indent=2))
