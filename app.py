@@ -1,8 +1,9 @@
 from flask import Flask
-import mysql.connector
+from ScranSreach import ScranSreachEngine
 
 app = Flask(__name__)
 
+# READ BACKEND USAGE .TXT !!
 
 @app.route('/')
 def hello_world():  # put application's code here

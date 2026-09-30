@@ -10,7 +10,7 @@ class ScranSreachEngine:
         sqlite_vec.load(self.conn)
         self.cursor = self.conn.cursor()
 
-    def SearchByVector(self, query, limit=5):
+    def Search(self, query, limit=5):
         query_vector = self.model.encode(query)
         self.cursor.execute("""
             SELECT 
@@ -20,6 +20,7 @@ class ScranSreachEngine:
             rest.Name AS Restaurant,
             rest.StreetAddress,
             rest.Postcode,
+            rest.Image,
             vec_distance_cosine(vec.embedding, ?) AS distance
         FROM item_vectors vec
         JOIN ItemInfo info ON vec.item_id = info.id
@@ -30,4 +31,9 @@ class ScranSreachEngine:
             (sqlite_vec.serialize_float32(query_vector), limit)
         )
 
-        return self.cursor.fetchall()
+        return list(reversed(self.cursor.fetchall()))
+
+if __name__ == "__main__":
+    import json
+    engine = ScranSreachEngine()
+    print(json.dumps(engine.Search("cheese"), indent=2))

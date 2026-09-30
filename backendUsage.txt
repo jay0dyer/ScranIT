@@ -1,0 +1,57 @@
+engine = ScranSreachEngine()
+start by running this with a loading screen, the sreach is fast but the INIT is slow
+
+engine.Search("latte")
+use this to search for an item, returned values below, there returned in order of most to least matching
+[
+  [
+    "12\" Garlic Cheese Pizza", # item name
+    "Pizza (12\")", # description
+    "\u00a311.95", # price,  \u00a3 is £
+    "Dough Daze", # restraunt name
+    "27 Ridley Place", # street address
+    "NE1 8JN", # post code
+    "https://d30v2pzvrfyzpo.cloudfront.net/uk/images/restaurants/235167.gif", # resaunt logo, USE IT
+    0.5266004800796509 # sreach ranking
+  ],
+  [
+    "Red Top - Slice",
+    "Three Cheese Blend, Double Pepperoni, pesto, Slow Cooked Red Sauce, Pecorino Romano, Hot Honey.",
+    "\u00a34.95",
+    "Square - Slices & Pies",
+    "1 Market Street",
+    "NE1 6JE",
+    "https://d30v2pzvrfyzpo.cloudfront.net/uk/images/restaurants/154664.gif",
+    0.5181164145469666
+  ],
+  [
+    "Vegan NY Cheese (VG)",
+    "Please note this pizza has NO cheese",
+    "\u00a311.50",
+    "I Scream For Pizza - Quayside",
+    "Three Indian Kings House\r\n31 Quayside",
+    "NE1 3DE",
+    "https://d30v2pzvrfyzpo.cloudfront.net/uk/images/restaurants/271464.gif",
+    0.5005191564559937
+  ],
+  [
+    "NY Cheese (V)",
+    "(Please note that our parmesan is not vegetarian as it is made with rennet - please ask if you'd like this left off)",
+    "\u00a311.50",
+    "I Scream For Pizza - Quayside",
+    "Three Indian Kings House\r\n31 Quayside",
+    "NE1 3DE",
+    "https://d30v2pzvrfyzpo.cloudfront.net/uk/images/restaurants/271464.gif",
+    0.446153849363327
+  ],
+  [
+    "Add Cheese",
+    "Vegetarian",
+    "\u00a31.00",
+    "Dinithi StreetFood Sri Lanka",
+    "45 - 46 Grainger Market Grainger Street",
+    "NE1 5QQ",
+    "https://d30v2pzvrfyzpo.cloudfront.net/uk/images/restaurants/261152.gif",
+    0.3983467221260071
+  ]
+]
