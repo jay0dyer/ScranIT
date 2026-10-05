@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scran</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <H1>Welcome to scranIT!</H1>
+    <form method="POST">
+      <input name="text" placeholder="What are you scranning for?" style="length: 150px;">
+      <button type="submit">Search NE1</button>
+  </form>
+    <h3>Results for: {{text}}</h3>
+    <table>
+            <th>Image</th>
+            <th>Restraunt</th>
+            <th>Food</th>
+            <th>price</th>
+            <th>Street</th>
+            <th>Postcode</th>
+            {% for result in result%}
+            <tr>
+                <td>
+                    <img src="{{ result[6] }}" alt="Restaurant image" width="75">
+                </td>
+                <td>{{ result[3] }}</td>
+                <td>{{ result[0]}}</td>
+                <td>{{ result[2]}}</td>
+                <td>{{ result[4]}}</td>
+                <td>{{ result[5]}}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    <script src="index.js"></script>
+  </body>
+</html>
