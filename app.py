@@ -8,16 +8,29 @@ app = Flask(__name__)
 # READ BACKEND USAGE .TXT !!
 
 @app.route('/')
-def hello_world():  # put application's code here
-    return render_template('index.html') # this links us to the templates
+def landing_page():
+    return render_template('landing.html')
 
 @app.route('/', methods=['POST'])
-def my_form_post():
+def landing_page_search():
     text = request.form['text']
-    print(text)
     result=engine.Search(text)
 
-    return render_template("index.html", result=result, text = text)
+    return render_template("search.html", result=result, text = text)
+
+@app.route('/search')
+def search():
+    return render_template('search.html') # this links us to the templates
+
+@app.route('/search', methods=['POST'])
+def search_form_post():
+    text = request.form['text']
+    sort = request.form['sortBy']
+    print(f"Search Query: {text}")
+    print(f"Sort Option: {sort}")
+    result=engine.Search(text, sort)
+
+    return render_template("search.html", result=result, text = text)
 
 
 

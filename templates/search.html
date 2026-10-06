@@ -9,9 +9,14 @@
   </head>
   <body>
     <H1>Welcome to scranIT!</H1>
-    <form method="POST">
-      <input name="text" placeholder="What are you scranning for?" style="length: 150px;">
-      <button type="submit">Search NE1</button>
+    <form action="/search" method="POST">
+      <input name="text" placeholder="What are you scranning for?">
+        <select name="sortBy">
+            <option value="Relevance">Relevance</option>
+            <option value="PriceLTH">Price, Low to High</option>
+            <option value="PriceHTL">Price, High to Low</option>
+    </select>
+        <button type="submit">Search NE1</button>
   </form>
     <table>
             <caption>Results for: {{text}}</caption>
@@ -22,8 +27,8 @@
             {% for result in result%}
             <tr>
                 <td>
+                    <h4>{{ result['Restaurant']}}</h4>
                     <img src="{{ result['Image'] }}" alt="{{ result['Restaurant']}} Logo" width="75">
-                    {{ result['Restaurant']}}
                 </td>
                 <td>
                     <h3>{{ result['Item']}}</h3>

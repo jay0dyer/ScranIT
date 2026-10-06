@@ -39,3 +39,7 @@ caption {
     background-color: #04aa6d;
     color: white;
 }
+
+input {
+    width: 15%;
+}
