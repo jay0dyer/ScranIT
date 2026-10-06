@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from ScranSearch import ScranSearchEngine
 import json
+print("loading back end...")
 engine = ScranSearchEngine()
 app = Flask(__name__)
 

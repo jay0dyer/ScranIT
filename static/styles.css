@@ -1,3 +1,5 @@
+
+
 table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -8,6 +10,7 @@ td,
 th {
     border: 1px solid #ddd;
     padding: 8px;
+    padding-top: 0px;
 }
 
 tr:nth-child(even) {
@@ -21,6 +24,17 @@ tr:hover {
 th {
     padding-top: 12px;
     padding-bottom: 12px;
+    text-align: left;
+    background-color: #04aa6d;
+    color: white;
+}
+
+caption {
+    border: 1px solid #ddd;
+    padding: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 12px;
     text-align: left;
     background-color: #04aa6d;
     color: white;

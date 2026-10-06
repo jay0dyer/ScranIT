@@ -7,6 +7,7 @@ class ScranSearchEngine:
         self.model = SentenceTransformer("all-MiniLM-L6-v2")
         self.conn = sqlite3.connect("ItemInfo.db")
         self.conn.enable_load_extension(True)
+        self.conn.row_factory = sqlite3.Row
         sqlite_vec.load(self.conn)
         self.cursor = self.conn.cursor()
 
@@ -31,7 +32,8 @@ class ScranSearchEngine:
             (sqlite_vec.serialize_float32(query_vector), limit)
         )
 
-        return list(reversed(self.cursor.fetchall()))
+        unsorted = [dict(row) for row in self.cursor.fetchall()]
+        return unsorted
 
 if __name__ == "__main__":
     import json

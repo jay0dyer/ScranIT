@@ -13,24 +13,24 @@
       <input name="text" placeholder="What are you scranning for?" style="length: 150px;">
       <button type="submit">Search NE1</button>
   </form>
-    <h3>Results for: {{text}}</h3>
     <table>
-            <th>Image</th>
+            <caption>Results for: {{text}}</caption>
             <th>Restraunt</th>
             <th>Food</th>
-            <th>price</th>
-            <th>Street</th>
-            <th>Postcode</th>
+            <th>Price</th>
+            <th>Location</th>
             {% for result in result%}
             <tr>
                 <td>
-                    <img src="{{ result[6] }}" alt="Restaurant image" width="75">
+                    <img src="{{ result['Image'] }}" alt="{{ result['Restaurant']}} Logo" width="75">
+                    {{ result['Restaurant']}}
                 </td>
-                <td>{{ result[3] }}</td>
-                <td>{{ result[0]}}</td>
-                <td>{{ result[2]}}</td>
-                <td>{{ result[4]}}</td>
-                <td>{{ result[5]}}</td>
+                <td>
+                    <h3>{{ result['Item']}}</h3>
+                    <p>{{ result['Description']}}</p>
+                </td>
+                <td>{{ result['Price']}}</td>
+                <td>{{ result['Postcode']}} , {{ result['StreetAddress']}}</td>
                 {% endfor %}
             </tr>
         </table>
