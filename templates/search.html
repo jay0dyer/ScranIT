@@ -9,7 +9,7 @@
   </head>
   <body>
     <H1>Welcome to scranIT!</H1>
-    <form action="/search" method="POST">
+    <form action="/search" method="POST", id="searchbox">
       <input name="text" placeholder="What are you scranning for?">
         <select name="sortBy">
             <option value="Relevance">Relevance</option>
@@ -19,7 +19,7 @@
         <button type="submit">Search NE1</button>
   </form>
     <table>
-            <caption>Results for: {{text}}</caption>
+            <caption>Results for: {{text}} in NE1</caption>
             <th>Restraunt</th>
             <th>Food</th>
             <th>Price</th>
@@ -35,7 +35,12 @@
                     <p>{{ result['Description']}}</p>
                 </td>
                 <td>{{ result['Price']}}</td>
-                <td>{{ result['Postcode']}} , {{ result['StreetAddress']}}</td>
+                <td>
+                    <p>{{ result['Postcode']}}, {{ result['StreetAddress']}}    </p>
+                    <a href="https://www.google.com/maps/search/?api=1&query={{ (result['Restaurant'] ~ ' ' ~ result['StreetAddress'] ~ ' ' ~ result['Postcode']) | urlencode }}" target="_blank" rel="noopener noreferrer">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDU1sL0vmcpPZfHKaZctSPz2LRUJHtpoIIgdPp7_0vjg&s=10" alt="View on google maps" width="50">
+                    </a>
+                </td>
                 {% endfor %}
             </tr>
         </table>

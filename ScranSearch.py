@@ -11,7 +11,7 @@ class ScranSearchEngine:
         sqlite_vec.load(self.conn)
         self.cursor = self.conn.cursor()
 
-    def Search(self, query, sort="Relevance", limit=10, max_distance=0.45, initial_pool=50):
+    def Search(self, query, sort="Relevance", limit=10, max_distance=0.50, initial_pool=50):
         query_vector = self.model.encode(query)
 
         sort_options = {

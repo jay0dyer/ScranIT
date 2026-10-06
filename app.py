@@ -32,8 +32,9 @@ def search_form_post():
 
     return render_template("search.html", result=result, text = text)
 
-
-
+@app.route('/AboutUs')
+def AboutUs():
+    return render_template('AboutUs.html')
 
 
 if __name__ == '__main__':

@@ -1,7 +1,8 @@
-
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 table {
-    font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
@@ -13,9 +14,6 @@ th {
     padding-top: 0px;
 }
 
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
 
 tr:hover {
     background-color: #ddd;
@@ -38,8 +36,26 @@ caption {
     text-align: left;
     background-color: #04aa6d;
     color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 input {
-    width: 15%;
+    width : 60%;
+}
+
+#searchbox {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width : fit-content;
+    border: 1px solid #ddd;
+    padding: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-top: 12px;
+    text-align: left;
+    background-color: #04aa6d;
+    color: white;
+    border-radius: 15px;
 }
