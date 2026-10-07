@@ -2,7 +2,6 @@ import pyaudio
 import simpleaudio
 from pydub import AudioSegment
 from random import randint
-from Log import Log
 from typing import Literal
 
 PlayingSound = None
