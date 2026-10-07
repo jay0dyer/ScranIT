@@ -1,9 +1,17 @@
 import pyaudio
+import simpleaudio
 from pydub import AudioSegment
-from pydub.playback import play
 from random import randint
+from Log import Log
+from typing import Literal
 
+PlayingSound = None
 SoundRegistry = {}
+SoundList = []
+for soundName in SoundRegistry:
+    if "gain" not in soundName:
+        SoundList.append(soundName)
+AllSounds = Literal[tuple(SoundList)]
 
 """Stores Sound names and paths in a dictionary"""
 def register(soundName: str, soundPath: list, gain: int):
@@ -22,13 +30,24 @@ register("Sound",["sounds/TestSound.wav"],30)
 Finds the path(s) associated with the SoundName.
 If a SoundName is associated with multiple paths, a path will be chosen at random to play.
 """
-def playSound(soundName: str):
+def playSound(soundName: AllSounds):
     if soundName in SoundRegistry:
         soundPaths = SoundRegistry[soundName]
         usePath = soundPaths[randint(0, len(soundPaths) - 1)]
         gain = SoundRegistry[soundName + str("gain")]
         try:
-            play(AudioSegment.from_wav(usePath) + gain)
+            seg = AudioSegment.from_wav(usePath) + gain
+            global PlayingSound
+            PlayingSound = simpleaudio.play_buffer(
+                seg.raw_data,
+                num_channels=seg.channels,
+                bytes_per_sample=seg.sample_width,
+                sample_rate=seg.frame_rate
+            )
+            try:
+                PlayingSound.wait_done()
+            except KeyboardInterrupt:
+                PlayingSound.stop()
         except:
             RuntimeError(f"Could not play {soundName}")
     else:
