@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Scran</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='master.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
   </head>
   <body>
     <H1>Welcome to scranIT!</H1>
-    <form action="/search" method="POST", id="searchbox">
+    <form action="/search" method="GET", id="searchbox">
       <input name="text" placeholder="What are you scranning for?">
         <select name="sortBy">
             <option value="Relevance">Relevance</option>
@@ -19,15 +19,9 @@
         <button type="submit">Search NE1</button>
   </form>
     <table>
-            <caption>Results for: {{text}} in NE1</caption>
-            <th>Restraunt</th>
-            <th>Food</th>
-            <th>Price</th>
-            <th>Location</th>
             {% for result in result%}
             <tr>
                 <td>
-                    <h4>{{ result['Restaurant']}}</h4>
                     <img src="{{ result['Image'] }}" alt="{{ result['Restaurant']}} Logo" width="75">
                 </td>
                 <td>

@@ -1,0 +1,18 @@
+
+table td {
+  display: block;
+}
+
+table tbody {
+  display: grid;
+}
+
+tr {
+   display: inline-block;
+   padding: 1rem 0.5rem 1rem 0.5rem;
+   margin: 1rem;
+   text-align: left;
+    background-color: #FF984A;
+    color: white;
+    border-radius: 15px;
+ }

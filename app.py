@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from ScranSearch import ScranSearchEngine
-import json
+
 print("loading back end...")
 engine = ScranSearchEngine()
 app = Flask(__name__)
@@ -11,21 +11,18 @@ app = Flask(__name__)
 def landing_page():
     return render_template('landing.html')
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['POST', 'GET'])
 def landing_page_search():
-    text = request.form['text']
+    text = request.args.get('text', '')
     result=engine.Search(text)
 
     return render_template("search.html", result=result, text = text)
 
+
 @app.route('/search')
 def search():
-    return render_template('search.html') # this links us to the templates
-
-@app.route('/search', methods=['POST'])
-def search_form_post():
-    text = request.form['text']
-    sort = request.form['sortBy']
+    text = request.args.get('text', '')
+    sort = request.args.get('sortBy', '')
     print(f"Search Query: {text}")
     print(f"Sort Option: {sort}")
     result=engine.Search(text, sort)

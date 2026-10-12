@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='master.css') }}">
+    <h1 id="GreatfoodforNE1">Great food for NE1</h1>
 </head>
 <body>
 <H1>Welcome to scranIT!</H1>
-    <form method="POST">
+    <form method="POST", id="searchbox">
       <input name="text" placeholder="What are you scranning for?">
       <button type="submit">Search NE1</button>
   </form>
