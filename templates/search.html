@@ -9,35 +9,44 @@
   </head>
   <body>
     <H1>Welcome to scranIT!</H1>
+    <H1>[PROTOTYPE]</H1>
     <form action="/search" method="GET", id="searchbox">
-      <input name="text" placeholder="What are you scranning for?">
+        <input name="text" placeholder="What are you scranning for?">
         <select name="sortBy">
             <option value="Relevance">Relevance</option>
             <option value="PriceLTH">Price, Low to High</option>
             <option value="PriceHTL">Price, High to Low</option>
-    </select>
+        </select>
         <button type="submit">Search NE1</button>
-  </form>
-    <table>
-            {% for result in result%}
-            <tr>
-                <td>
-                    <img src="{{ result['Image'] }}" alt="{{ result['Restaurant']}} Logo" width="75">
-                </td>
-                <td>
-                    <h3>{{ result['Item']}}</h3>
-                    <p>{{ result['Description']}}</p>
-                </td>
-                <td>{{ result['Price']}}</td>
-                <td>
-                    <p>{{ result['Postcode']}}, {{ result['StreetAddress']}}    </p>
-                    <a href="https://www.google.com/maps/search/?api=1&query={{ (result['Restaurant'] ~ ' ' ~ result['StreetAddress'] ~ ' ' ~ result['Postcode']) | urlencode }}" target="_blank" rel="noopener noreferrer">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDU1sL0vmcpPZfHKaZctSPz2LRUJHtpoIIgdPp7_0vjg&s=10" alt="View on google maps" width="50">
-                    </a>
-                </td>
-                {% endfor %}
-            </tr>
-        </table>
+    </form>
+    <div class="cards-container">
+        {% for result in result %}
+        <div class="food-card">
+            <!-- Top Section: Image on left, Name/Price & Description on right -->
+            <div class="card-top">
+                <div class="card-img-wrapper">
+                    <img src="{{ result['Image'] }}" alt="{{ result['Restaurant']}} Logo" class="card-img">
+                </div>
+
+                <div class="card-details">
+                    <div class="title-price">
+                        <h3 class="card-title">{{ result['Item']}}</h3>
+                        <span class="card-price">{{ result['Price']}}</span>
+                    </div>
+                    <p class="card-desc">{{ result['Description']}}</p>
+                </div>
+            </div>
+
+            <!-- Bottom Section: Address and Google Maps Link -->
+            <div class="card-bottom">
+                <p class="card-address">{{ result['Postcode']}}, {{ result['StreetAddress']}}</p>
+                <a href="https://www.google.com/maps/search/?api=1&query={{ (result['Restaurant'] ~ ' ' ~ result['StreetAddress'] ~ ' ' ~ result['Postcode']) | urlencode }}" target="_blank" rel="noopener noreferrer" class="map-link">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDU1sL0vmcpPZfHKaZctSPz2LRUJHtpoIIgdPp7_0vjg&s=10" alt="View on google maps" width="40">
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
     <script src="index.js"></script>
   </body>
 </html>

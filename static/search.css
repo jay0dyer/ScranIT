@@ -1,18 +1,89 @@
-
-table td {
-  display: block;
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 450px;
+    margin: 0 auto;
 }
 
-table tbody {
-  display: grid;
-}
-
-tr {
-   display: inline-block;
-   padding: 1rem 0.5rem 1rem 0.5rem;
-   margin: 1rem;
-   text-align: left;
+.food-card {
     background-color: #FF984A;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 0;
     color: white;
-    border-radius: 15px;
- }
+    box-sizing: border-box;
+}
+
+.card-top {
+    display: flex;
+    align-items: stretch;
+}
+
+/* Image container sticks to the left and top edge */
+.card-img-container {
+    width: 110px;
+    flex-shrink: 0;
+    border-right: 1px solid white;
+    padding: 6px;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+.card-details {
+    flex: 1;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.title-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.card-price {
+    font-size: 1rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.card-desc {
+    font-size: 0.85rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.card-bottom {
+    border-top: 1px solid white;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-address {
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.map-link img {
+    border-radius: 4px;
+    vertical-align: middle;
+}

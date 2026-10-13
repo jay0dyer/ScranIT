@@ -1,4 +1,5 @@
 body {
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
     height: 100vh;
@@ -15,14 +16,14 @@ body {
 }
 
 #searchbox {
-    display: flex;
-    flex-direction: row;
+    display: inline-block;
     gap: 20px;
-    width : fit-content;
     padding: 1rem 0.5rem 1rem 0.5rem;
     margin: 1rem;
     text-align: left;
     background-color: #FF984A;
     color: white;
     border-radius: 15px;
+    width: fit-content%;
+    max-width: 600px;
 }
