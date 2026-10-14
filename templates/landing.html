@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='Images/favicon.ico') }}">
+    <title>Scranit - Home</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='master.css') }}">
     <h1 id="GreatfoodforNE1">Great food for NE1</h1>
 </head>
 <body>
+
+
+<nav class="navbar">
+				<div class="nav-links">
+						<a href={{ url_for('landing_page') }}>>Home</a>
+						<a href={{ url_for('search') }}>Search</a>
+                        <a href={{ url_for('AboutUs') }}>About us</a>
+				</div>
+		</nav>
+
 <H1>Welcome to scranIT!</H1>
     <form method="POST", id="searchbox">
       <input name="text" placeholder="What are you scranning for?">

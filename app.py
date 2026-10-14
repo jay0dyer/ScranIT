@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
+import os
 from ScranSearch import ScranSearchEngine
 
 print("loading back end...")
@@ -32,6 +33,14 @@ def search():
 @app.route('/AboutUs')
 def AboutUs():
     return render_template('AboutUs.html')
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static', 'Images'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
+
+
 
 
 if __name__ == '__main__':
