@@ -9,6 +9,13 @@
       <link rel="shortcut icon" href="{{ url_for('static', filename='Images/favicon.ico') }}">
   </head>
   <body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href={{ url_for('landing_page') }}>Home</a>
+            <a href={{ url_for('search') }}>Search</a>
+            <a href={{ url_for('AboutUs') }}>About us</a>
+        </div>
+    </nav>
     <H1>Welcome to scranIT!</H1>
     <H1>[PROTOTYPE]</H1>
     <form action="/search" method="GET", id="searchbox">
