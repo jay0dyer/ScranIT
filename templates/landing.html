@@ -21,9 +21,19 @@
 		</nav>
 
 <H1>Welcome to scranIT!</H1>
-    <form method="POST", id="searchbox">
-      <input name="text" placeholder="What are you scranning for?">
-      <button type="submit">Search NE1</button>
-  </form>
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: space-around; gap: 20px;">
+    <div>
+        <form method="POST" id="searchbox">
+            <input name="text" placeholder="What are you scranning for?">
+            <button type="submit">Search NE1</button>
+        </form>
+    </div>
+    <div>
+        <img src="{{ url_for('static', filename='yad.png') }}" width="500"/>
+    </div>
+    <div>
+        <img src="{{ url_for('static', filename='OurABCs.png') }}" width="500"/>
+    </div>
+</div>
 </body>
 </html>

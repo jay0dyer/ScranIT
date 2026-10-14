@@ -42,7 +42,6 @@ def favicon():
 
 
 
-
 if __name__ == '__main__':
     app.run(threaded=False) #code needs to run on one thread for it to interact nicely with the database
 
